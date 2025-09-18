@@ -1,0 +1,54 @@
+// A basic Declarative Pipeline
+pipeline {
+    // Define the agent where the pipeline will run. 
+    // 'any' means it can run on any available agent.
+    agent any 
+    
+    // Define the stages of your pipeline.
+    stages {
+        // Stage 1: Build
+        stage('Build') {
+            steps {
+                echo 'Building the application...' 
+                // A step to run a shell command.
+                sh 'npm install' 
+            }
+        }
+        
+        // Stage 2: Test
+        stage('Test') {
+            steps {
+                echo 'Running tests...' 
+                sh 'npm test' 
+            }
+        }
+        
+        // Stage 3: Deploy (only runs on the 'main' branch)
+        stage('Deploy') {
+            when {
+                // Condition to run this stage only when on the 'main' branch.
+                branch 'main' 
+            }
+            steps {
+                echo 'Deploying to production...' 
+                sh 'npm run deploy' 
+            }
+        }
+    }
+    
+    // Define actions to take after the pipeline completes.
+    post {
+        // 'always' block runs after every pipeline run, regardless of success or failure.
+        always {
+            echo 'Pipeline finished!'
+        }
+        // 'success' block runs only if the pipeline completes successfully.
+        success {
+            echo 'Pipeline ran successfully.'
+        }
+        // 'failure' block runs only if the pipeline fails.
+        failure {
+            echo 'Pipeline failed. Check logs.'
+        }
+    }
+}
