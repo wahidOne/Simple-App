@@ -1,10 +1,10 @@
-HOW TO BUILD APP
+**HOW TO BUILD APP with Docker**
 
 **STEP 1**
 
 For the installer you must be download template from :
 _https://www.tooplate.com/free-templates_
-choice the template you need and download
+choose the template you need and download
 
 **STEP 2**
 
@@ -15,4 +15,4 @@ _[https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiji8Xl7OGEAxUByDwC
 
 Download with command : 
 
-_sudo apt-get update && sudo apt-get install zip -y_
+sudo apt-get update && sudo apt-get install zip -y
