@@ -1,4 +1,4 @@
-#Get OS/APP you want to build
+#Get OS/APP what you want to build
 FROM ubuntu:latest
 #input label for name docker image
 Label "Author"="wahid"
